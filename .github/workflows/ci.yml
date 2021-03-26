@@ -1,0 +1,13 @@
+name: Continuous Integration workflow
+
+on: pull_request
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
